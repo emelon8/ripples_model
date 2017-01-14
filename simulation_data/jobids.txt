@@ -1,0 +1,76 @@
+E-I Network:
+4.38GB-452477 DCi=0:20:60, test to see how much voltage changes
+4.09GB-453961 DCi=0:3, test to see how much voltage changes
+169MB-458881 DCe=0:2:6, test to see how much voltage changes
+53.6GB-461875 DCe=0:10, DCi=0:10, test to see how much ripple power changes
+1.76GB-484663 lower Vreseti to see if it has a restorative effect on after increasing DCi (lowering Vreseti increases time from reset to spike, whereas increasing DCi decreases it)
+1.71GB-484674 lower tauGABAdecay to see if just causes increasing DCi to increase the peak frequency (lowering time constant may allow pyramidal neurons to oscillate at the same rate as input, instead of all inhibitory input appearing as DC current)
+6.23GB-485859 same as above two, for a range of Vreseti and tauGABAdecay values. Decreasing the Vreseti did have a restorative effect on ripple power. 100 cell rastergrams
+912MB-519699 Vreseti=-79, test to see if it counteracts the effects on ripples of DCi=10
+914MB-519700 Vresete=-53 (decrease in AHP size, like the effect of ACh on Pyr cells), test to see how much it affects ripples
+914MB-523899 DCi=10, Vresete=18, ripples decrease vs. original
+8.93MB-523900 f-I curves when Vresete=-52
+1.78GB-524408 DCi=5, DCe=5, Vresete=18, ripples decrease vs. original
+32.3MB-gMegMirange range of time constants
+1.53MB-535439 DCi=10, tarpI = 1:2:9 (5.306 ms is the charge time for a Vinf=10 mV above threshold for the interneurons' time constant)
+653KB-537039 DCi=5, tarpI = 8.755 ms
+911MB-538648 DCi=5, tarpI = 5 ms
+911MB-538681 DCi=10, tarpI = 5 ms
+457MB-539180 older baseline (from mcurrent range) to make sure nothing has changed
+993MB-539193 gLi = 2 nS to get the STA
+-674546 range of GABA decay times 1:10
+-697320 baseline model with IAMPA and IAMPArk outputted for comparison
+-697518 baseline model with IEXT, IAMPA, INMDA, IGABA outputted
+-716879 baseline model with random seed of -170
+-717453 baseline model with random seed of -16
+-717729 baseline model with no IEXT
+-730906 baseline model with GABA fspk++ to neuron 0 at timestep 40000
+-731043 baseline model with GABA fspk++ to neuron 0 at timestep%2000==0
+-758440 baseline model with GABA fspk++ at (timestep-2000)/2000==ineur
+-727460 baseline model with GABA fspk++ to all neurons at timestep 40000
+-919360 baseline model with output igaba and igabark for comparison
+-920496 baseline model with output hreci and igaba and igabark, for use in trying to figure out the recovery time
+-932083 model with 10 DCi and outputting hreci and igabark, for use in trying to figure out the recovery time
+-1144396 baseline model with 0 and 10 DCi output total current = (IEXT + IAMPA + IGABA + INMDA + DC - hi[ineur])/taum for current STA
+-1149970 baseline model with 0 and 10 DCi output excitatory current = (IAMPA + INMDA)/taum for current STA
+
+
+E-I No Connections:
+-717797 baseline model with no connectivity and just one IEXT to neuron 0 at timestep 40000
+-718712 baseline model with no connectivity and just one IEXT to neuron 0 at timestep 40000, with IEXT edited to be GABAergic
+-724635 baseline model with no connectivity and just one IEXT to neuron 0 at timestep 40000, with IEXT edited to be GABAergic, with DC=5 added to neuron 0 so it's not right at the reversal for GABA
+-746970 baseline model with no connectivity and IEXT at (timestep-2000)/2000==ineur, with IEXT edited to be GABAergic, with DC=5 added to neuron 0 so it's not right at the reversal for GABA
+-730780 baseline model with no connectivity and IEXT to neuron 0 at timestep%2000==0, with IEXT edited to be GABAergic, with DC=5 added to neuron 0 so it's not right at the reversal for GABA
+-894545 baseline model with no connections (modulAMPA, modulNMDA, and modulGABA = 0)
+-905500 baseline model with no connections (modulAMPA, modulNMDA, and modulGABA = 0), but with increased IEXT rate for both types (nuexte = 0.0375; nuexti = 0.03125)
+-906913 baseline model with no connections (modulAMPA, modulNMDA, and modulGABA = 0), but with decreased IEXT rate for both types (nuexte = 0.025; nuexti = 0.0225)
+-906994 baseline model with no connections (modulAMPA, modulNMDA, and modulGABA = 0), but with decreased IEXT rate for both types (nuexte = 0.015; nuexti = 0.01375)
+-908638 baseline model with no connections (modulAMPA, modulNMDA, and modulGABA = 0), but with decreased IEXT rate a lot for both types (nuexte = 0.0015; nuexti = 0.001375)
+-938636 baseline model with no connectivity and DCe, DCi 0:10
+-938806 1000 ms, no connectivity and step to DC = 3 at 500 ms; 1/10th IEXT Poisson rate, run with tauEXT decay = 0:5
+-938846 1000 ms, no connectivity and step to DC = 5 at 500 ms; 1/10th IEXT Poisson rate, run with tauEXT decay = 0:5
+-938882 1000 ms, no connectivity and step to DC = 7 at 500 ms; 1/10th IEXT Poisson rate, run with tauEXT decay = 0:5
+-1173838 baseline model where pyr cells have same refractory period and membrane time constant as interneurons (1 and 10)
+-1173867 baseline model with same intrinsic, synaptic, and iext properties for both neuron types (same as interneurons originally)
+-1173885 baseline model with same iext rates for both neuron types (0.03)
+
+
+Single Cell:
+4.12MB-516856 single cell rastergram
+8.94MB-518387 f-I curves for original model single cell
+8.95MB-519680 f-I curves for Vreseti=-9 model single cell
+8.94MB-519685 f-I curves for Vresete=17 model single cell
+
+
+I-I Network:
+741MB-544194 only interneurons (outputs hreci and igaba and igabark, for use in trying to figure out the recovery time)
+457MB-570044 only interneurons with GABA latency = 0.5, disrupts synchrony
+440MB-595653 only interneurons with GABA latency = 1.5
+-674543 only interneurons with range of GABA decay times 1:10
+-1172897 only interneurons with DCi = -10:2:10 that outputs all currents for analysis of std of current waveforms with different DCi values, as well as looking at firing rate changes in comparison to Figure 2 of Brunel and Wang (2003)
+
+
+Paola's Model:
+2.59GB-453953 Paola's model, DCi=0:10:30, test to see how much voltage changes
+3.42GB-462058 Paola's model, DCe=0:10:30, test to see how much ripple power changes
+156GB-1525051 Paola's model, DCe=0:10, DCi=0:10, test to see how much ripple power changes
